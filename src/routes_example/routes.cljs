@@ -19,7 +19,6 @@
   [url]
   (bidi/match-route @routes url))
 
-(parse "/users/1")
 
 (defn url-for
   [& args]

@@ -11,7 +11,8 @@
 
 (re-frame/reg-event-fx
  ::navigate
- (fn-traced [_ [_ handler]]
+ (fn-traced [cofx [_ handler]]
+            (println cofx)
             {:navigate handler}))
 
 (re-frame/reg-event-fx
