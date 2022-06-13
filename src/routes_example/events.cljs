@@ -20,8 +20,8 @@
  (fn-traced [{:keys [db]} [_ active-panel]]
             {:db (assoc db :active-panel active-panel)}))
 
-
 (re-frame/reg-event-fx
  ::set-route
+ [(re-frame/inject-cofx :datetime)]
  (fn-traced [{:keys [db]} [_ route]]
             {:db (assoc db :route route)}))
