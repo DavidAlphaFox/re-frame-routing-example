@@ -17,3 +17,12 @@
  ::route-params
  (fn [db _]
    (get-in db [:route :route :route-params])))
+
+(re-frame/reg-sub
+ ::loading 
+ (fn [db _] 
+   (get-in db [:loading])))
+(re-frame/reg-sub
+ ::users
+ (fn [db _]
+   (get-in db [:users])))
