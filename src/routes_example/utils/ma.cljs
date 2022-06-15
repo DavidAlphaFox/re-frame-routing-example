@@ -4,7 +4,8 @@
   "简单移动平均线"
   [period coll]
   (vec (lazy-cat (repeat (dec period) nil)
-            (map #(/ (reduce + %) period)))))
+            (map #(/ (reduce + %) period) coll))))
+
 (defn exponential-moving-average
   "指数移动平均值"
   [period coll]

@@ -11,7 +11,7 @@
  (fn-traced [{:keys [db]} _]                    ;; the first param will be "world"
    {:db   (assoc db :loading true)   ;; causes the twirly-waiting-dialog to show??
     :http-xhrio {:method          :get
-                 :uri             "https://reqresc.in/api/u?page=2"
+                 :uri             "http://127.0.0.1:8080/api/public/stock_zh_a_hist?symbol=002563&period=daily&start_date=20211109&end_date=20211209"
                  :timeout         8000                                           ;; optional see API docs
                  :response-format (ajax/json-response-format {:keywords? true})  ;; IMPORTANT!: You must provide this.
                  :on-success      [::fetch-users-success]
@@ -19,7 +19,7 @@
 
 (re-frame/reg-event-db
  ::fetch-users-success
- (fn-traced [db [_ {:keys [data]}]]
+ (fn-traced [db [_ data]]
    (-> db
        (assoc :loading false)
        (assoc :users data))))
